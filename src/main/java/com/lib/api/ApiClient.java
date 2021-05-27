@@ -81,7 +81,7 @@ public class ApiClient {
         if (apiRequest.getHeaders() != null) {
             requestSpecBuilder.addHeaders(apiRequest.getHeaders());
         }
-        
+
         if (apiRequest.getBody() != null) {
             requestSpecBuilder.setBody(apiRequest.getBody());
         }
