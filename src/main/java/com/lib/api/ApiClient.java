@@ -81,25 +81,6 @@ public class ApiClient {
         if (apiRequest.getHeaders() != null) {
             requestSpecBuilder.addHeaders(apiRequest.getHeaders());
         }
-        if (apiRequest.getFormParam() != null) {
-            requestSpecBuilder.addFormParams(apiRequest.getFormParam());
-        }
-        if (apiRequest.getMultiPart() != null) {
-            apiRequest.getMultiPart().entrySet().stream().filter(set -> set.getValue() != null).forEach(set -> {
-                if (set.getKey().equalsIgnoreCase("file")) {
-                    try {
-                        requestSpecBuilder.addMultiPart(set.getKey(), ((File) set.getValue()),  ((File) set.getValue()).toURL().openConnection().getContentType());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    requestSpecBuilder.addMultiPart(set.getKey(), set.getValue().toString());
-                }
-            });
-        }
-        if (apiRequest.getBasicAuthentication() != null) {
-            requestSpecBuilder.setAuth(RestAssured.basic(apiRequest.getBasicAuthentication().getUserName(), apiRequest.getBasicAuthentication().getPassword()));
-        }
         if (apiRequest.getBody() != null) {
             requestSpecBuilder.setBody(apiRequest.getBody());
         }
