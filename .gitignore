@@ -1,0 +1,10 @@
+/lib
+.ant-targets-build.xml
+*.iml
+/.idea
+/build
+/dist
+/.gradle
+/out
+.DS_Store
+*.log

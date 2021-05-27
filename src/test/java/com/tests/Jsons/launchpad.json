@@ -1,0 +1,11 @@
+{
+  query: {
+    upcoming: false
+  },
+  options: {
+    sort: {
+      flight_number: 'asc'
+    },
+    ship: false
+  }
+}
